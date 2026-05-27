@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Idul Adha Modern</title>
+<title>Ucapan Idul Adha</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -59,7 +59,7 @@ body{
     right:-100px;
 }
 
-/* Stars */
+/* Bintang */
 .star{
     position:absolute;
     width:3px;
@@ -81,7 +81,7 @@ body{
 
 }
 
-/* Moon */
+/* Bulan */
 .moon{
     position:absolute;
     top:70px;
@@ -113,6 +113,36 @@ body{
 
     50%{
         transform:translateY(-15px);
+    }
+
+}
+
+/* Floating Icon */
+.icon{
+    position:absolute;
+    font-size:32px;
+    animation:floatIcon 5s ease-in-out infinite;
+}
+
+.i1{
+    top:120px;
+    left:120px;
+}
+
+.i2{
+    bottom:120px;
+    left:180px;
+    animation-delay:2s;
+}
+
+@keyframes floatIcon{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-20px);
     }
 
 }
@@ -189,13 +219,6 @@ body{
     -webkit-text-fill-color:transparent;
 }
 
-/* Subtitle */
-.subtitle{
-    margin-top:20px;
-    color:#d1d5db;
-    letter-spacing:2px;
-}
-
 /* Typing */
 .typing{
     overflow:hidden;
@@ -229,7 +252,12 @@ body{
 
 }
 
-/* Message */
+.subtitle{
+    margin-top:20px;
+    color:#d1d5db;
+    letter-spacing:2px;
+}
+
 .message{
     margin-top:25px;
     line-height:1.9;
@@ -265,36 +293,6 @@ body{
 
 }
 
-/* Floating Icons */
-.icon{
-    position:absolute;
-    font-size:32px;
-    animation:floatIcon 6s ease-in-out infinite;
-}
-
-.i1{
-    top:120px;
-    left:120px;
-}
-
-.i2{
-    bottom:120px;
-    left:180px;
-    animation-delay:2s;
-}
-
-@keyframes floatIcon{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-20px);
-    }
-
-}
-
 /* ================= HALAMAN KEDUA ================= */
 
 .page2{
@@ -306,18 +304,20 @@ body{
     display:none;
     justify-content:center;
     align-items:center;
+    flex-direction:column;
 
     overflow:hidden;
 }
 
 /* Tulisan */
 .fire-title{
-    position:absolute;
 
     font-size:70px;
     font-weight:bold;
 
     color:white;
+
+    text-align:center;
 
     text-shadow:
     0 0 20px gold,
@@ -329,6 +329,7 @@ body{
     animation:glow 2s infinite alternate;
 }
 
+/* Glow */
 @keyframes glow{
 
     from{
@@ -342,6 +343,47 @@ body{
         0 0 30px white,
         0 0 60px gold,
         0 0 90px red;
+    }
+
+}
+
+/* Pesan pasangan */
+.love-message{
+
+    margin-top:30px;
+
+    font-size:20px;
+    font-weight:400;
+
+    line-height:1.8;
+
+    color:white;
+
+    text-align:center;
+
+    max-width:700px;
+
+    padding:0 20px;
+
+    text-shadow:
+    0 0 10px rgba(255,255,255,0.5);
+
+    z-index:10;
+
+    animation:fadeText 2s ease;
+}
+
+/* Animasi teks */
+@keyframes fadeText{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
     }
 
 }
@@ -391,9 +433,12 @@ body{
 }
 
 .fire-title{
-    font-size:40px;
-    text-align:center;
+    font-size:38px;
     padding:20px;
+}
+
+.love-message{
+    font-size:16px;
 }
 
 .moon{
@@ -427,14 +472,14 @@ body{
     <!-- Moon -->
     <div class="moon"></div>
 
-    <!-- Floating Icons -->
+    <!-- Floating Icon -->
     <div class="icon i1">✨</div>
     <div class="icon i2">🌙</div>
 
     <!-- Card -->
     <div class="card">
 
-        <!-- Judul -->
+        <!-- Title -->
         <div class="title">
 
             <span class="title-icon">🕌</span>
@@ -477,11 +522,28 @@ body{
 
 <div class="page2" id="page2">
 
+    <!-- Judul -->
     <div class="fire-title">
 
         🕌 SELAMAT IDUL ADHA 🌙
 
     </div>
+
+    <!-- Pesan -->
+    <p class="love-message">
+
+        Maaf ya sayang kalau selama ini
+        aku masih banyak salah,
+        baik dari ucapan maupun sikap.
+
+        <br><br>
+
+        Semoga di hari yang penuh berkah ini,
+        hubungan kita selalu dipenuhi
+        kebahagiaan, kesabaran,
+        dan cinta yang tulus 🤍
+
+    </p>
 
 </div>
 
@@ -524,7 +586,6 @@ function buatKembangApi(){
             firework.style.background =
             `hsl(${Math.random()*360},100%,60%)`;
 
-            /* arah percikan */
             const angle =
             Math.random() * Math.PI * 2;
 
